@@ -3,6 +3,7 @@ import { initI18n } from './i18n.js';
 import { registerRoute, initRouter, navigate } from './router.js';
 import { getState, on } from './store.js';
 import { renderNavbar } from './components/navbar.js';
+import { initNotifications } from './notifications.js';
 
 // Page imports
 import loginPage from './pages/login.js';
@@ -41,6 +42,9 @@ async function init() {
 
   // Re-render navbar on language change
   on('language', () => renderNavbar());
+
+  // Init notifications & service worker
+  initNotifications();
 
   // Init router (handles initial page render)
   initRouter();

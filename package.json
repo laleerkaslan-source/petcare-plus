@@ -8,13 +8,25 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": ["pet", "care", "health"],
+  "keywords": [
+    "pet",
+    "care",
+    "health"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/app": "^8.0.1",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
+    "@capacitor/ios": "^8.2.0",
+    "@capacitor/local-notifications": "^8.0.2",
+    "@capacitor/splash-screen": "^8.0.1",
     "@supabase/supabase-js": "^2.99.3"
   },
   "devDependencies": {
+    "typescript": "^6.0.2",
     "vite": "^8.0.1"
   }
 }

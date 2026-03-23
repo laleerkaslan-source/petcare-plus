@@ -1,0 +1,21 @@
+{
+  "appId": "com.petcareplus.app",
+  "appName": "PetCare+",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#4CAF50",
+      "showSpinner": true,
+      "spinnerColor": "#FFFFFF"
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon",
+      "iconColor": "#4CAF50",
+      "sound": "default"
+    }
+  }
+}
