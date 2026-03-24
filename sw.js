@@ -36,6 +36,9 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // Skip non-http(s) requests (chrome-extension://, etc.)
+  if (!url.protocol.startsWith('http')) return;
+
   // API calls - network first, cache fallback
   if (url.hostname.includes('supabase.co')) {
     event.respondWith(
