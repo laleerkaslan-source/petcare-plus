@@ -1,16 +1,11 @@
-const CACHE_NAME = 'petcare-v1';
+const CACHE_NAME = 'petcare-v2';
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  './',
+  './index.html',
+  './manifest.json',
   './assets/logo.svg',
-  '/css/variables.css',
-  '/css/reset.css',
-  '/css/layout.css',
-  '/css/components.css',
-  '/css/pages.css',
-  '/locales/tr.json',
-  '/locales/en.json',
+  './locales/tr.json',
+  './locales/en.json',
 ];
 
 // Install - cache static assets
