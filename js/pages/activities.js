@@ -1,6 +1,7 @@
 import { t, getCurrentLang } from '../i18n.js';
 import { supabase } from '../supabase.js';
 import { getState } from '../store.js';
+import { animateCards, addCardHoverEffects, bounceEmoji, animateBadges } from '../animations.js';
 
 const ACTIVITY_ICONS = {
   dog: '🎾', cat: '🧶', bird: '🪶', fish: '🫧', rabbit: '🥕', other: '🎯'
@@ -71,4 +72,9 @@ function renderActivities(activities, lang, isPremium) {
       </div>
     `;
   }).join('');
+
+  animateCards('.activity-card');
+  addCardHoverEffects('.activity-card');
+  animateBadges('.activity-meta .badge');
+  container.querySelectorAll('.activity-icon').forEach(el => bounceEmoji(el));
 }

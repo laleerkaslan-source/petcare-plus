@@ -3,6 +3,7 @@ import { getState } from '../store.js';
 import { supabase } from '../supabase.js';
 import { setState } from '../store.js';
 import { navigate } from '../router.js';
+import { animateGreeting, animateCards, addCardHoverEffects, bounceEmoji, animateBadges } from '../animations.js';
 
 const SPECIES_EMOJI = {
   dog: '🐕', cat: '🐱', bird: '🐦', fish: '🐟', rabbit: '🐰', other: '🐾'
@@ -32,6 +33,9 @@ export default async function dashboardPage() {
   document.getElementById('add-pet-btn').addEventListener('click', () => {
     navigate('/pet/new');
   });
+
+  // Animate greeting
+  animateGreeting(content.querySelector('.dashboard-greeting'));
 
   await loadPets();
 }
@@ -93,6 +97,14 @@ function renderPets(pets) {
       </div>
     `;
   }).join('');
+
+  // Animate pet cards entrance
+  animateCards('.pet-card');
+  addCardHoverEffects('.pet-card');
+  animateBadges('.badge');
+
+  // Bounce emoji avatars
+  container.querySelectorAll('.avatar').forEach(a => bounceEmoji(a));
 
   container.querySelectorAll('.pet-card').forEach(card => {
     card.addEventListener('click', () => {

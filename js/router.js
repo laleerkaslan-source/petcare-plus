@@ -1,4 +1,5 @@
 import { getState } from './store.js';
+import { animatePageIn, popNavIcon } from './animations.js';
 
 const routes = {};
 let currentCleanup = null;
@@ -81,6 +82,8 @@ async function handleRoute() {
     if (typeof result === 'object' && result.cleanup) {
       currentCleanup = result.cleanup;
     }
+    // Animate page entrance
+    animatePageIn(content);
   }
 }
 
@@ -92,6 +95,9 @@ function patternToRegex(pattern) {
 function updateActiveNav(hash) {
   document.querySelectorAll('.nav-item').forEach(item => {
     const href = item.dataset.route;
-    item.classList.toggle('active', hash === href || hash.startsWith(href + '/'));
+    const wasActive = item.classList.contains('active');
+    const isActive = hash === href || hash.startsWith(href + '/');
+    item.classList.toggle('active', isActive);
+    if (isActive && !wasActive) popNavIcon(item);
   });
 }

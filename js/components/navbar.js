@@ -1,4 +1,5 @@
 import { t } from '../i18n.js';
+import { animateNavbar } from '../animations.js';
 
 const NAV_ITEMS = [
   { route: '/dashboard', icon: 'home', labelKey: 'nav.home' },
@@ -24,4 +25,5 @@ export function renderNavbar() {
       <span>${t(item.labelKey)}</span>
     </a>
   `).join('');
+  animateNavbar();
 }

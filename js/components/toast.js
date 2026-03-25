@@ -1,3 +1,5 @@
+import { animateToastIn, animateToastOut } from '../animations.js';
+
 export function showToast(message, type = 'info', duration = 3000) {
   const container = document.getElementById('toast-container');
   const toast = document.createElement('div');
@@ -5,10 +7,9 @@ export function showToast(message, type = 'info', duration = 3000) {
   toast.textContent = message;
   container.appendChild(toast);
 
+  animateToastIn(toast);
+
   setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(-20px)';
-    toast.style.transition = 'all 0.3s ease';
-    setTimeout(() => toast.remove(), 300);
+    animateToastOut(toast);
   }, duration);
 }

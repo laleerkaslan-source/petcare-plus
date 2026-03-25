@@ -2,6 +2,7 @@ import { t } from '../i18n.js';
 import { supabase } from '../supabase.js';
 import { getState } from '../store.js';
 import { showToast } from '../components/toast.js';
+import { animateCalendarGrid, animateCards, addCardHoverEffects } from '../animations.js';
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
@@ -101,6 +102,7 @@ function renderCalendar() {
   }
 
   document.getElementById('calendar-grid').innerHTML = html;
+  animateCalendarGrid('.calendar-day');
 }
 
 function renderVaccineList() {
@@ -140,6 +142,9 @@ function renderVaccineList() {
       </div>
     `;
   }).join('');
+
+  animateCards('.vaccine-item');
+  addCardHoverEffects('.vaccine-item');
 
   container.querySelectorAll('.mark-done-btn').forEach(btn => {
     btn.addEventListener('click', async (e) => {

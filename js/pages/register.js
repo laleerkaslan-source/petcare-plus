@@ -2,6 +2,7 @@ import { t } from '../i18n.js';
 import { signUp } from '../auth.js';
 import { navigate } from '../router.js';
 import { showToast } from '../components/toast.js';
+import { animateAuthPage, animateButtonClick } from '../animations.js';
 
 export default async function registerPage() {
   const content = document.getElementById('page-content');
@@ -35,6 +36,8 @@ export default async function registerPage() {
     </div>
   `;
 
+  animateAuthPage();
+
   const form = document.getElementById('register-form');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -47,6 +50,7 @@ export default async function registerPage() {
     if (!email) { showToast(t('auth.emailRequired'), 'error'); return; }
     if (password.length < 6) { showToast(t('auth.passwordMin'), 'error'); return; }
 
+    animateButtonClick(btn);
     btn.disabled = true;
     btn.textContent = t('common.loading');
 

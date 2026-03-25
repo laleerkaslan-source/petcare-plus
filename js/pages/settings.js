@@ -4,6 +4,7 @@ import { signOut, updateProfile } from '../auth.js';
 import { navigate } from '../router.js';
 import { showToast } from '../components/toast.js';
 import { renderNavbar } from '../components/navbar.js';
+import { animateListItems } from '../animations.js';
 
 export default async function settingsPage() {
   const { profile } = getState();
@@ -58,6 +59,8 @@ export default async function settingsPage() {
 
     <button class="btn btn-danger btn-full mt-lg" id="logout-btn">${t('settings.logout')}</button>
   `;
+
+  animateListItems('.settings-item');
 
   document.getElementById('lang-tr').addEventListener('click', async () => {
     await switchLang('tr');

@@ -1,6 +1,7 @@
 import { t, getCurrentLang } from '../i18n.js';
 import { supabase } from '../supabase.js';
 import { getState } from '../store.js';
+import { animateChips, animateCards, addCardHoverEffects } from '../animations.js';
 
 const CATEGORIES = ['all', 'nutrition', 'exercise', 'grooming', 'health', 'behavior'];
 let currentCategory = 'all';
@@ -32,6 +33,7 @@ export default async function healthTipsPage() {
     loadTips();
   });
 
+  animateChips('.category-chip');
   await loadTips();
 }
 
@@ -85,4 +87,7 @@ function renderTips(tips, lang, isPremium) {
       </div>
     `;
   }).join('');
+
+  animateCards('.tip-card');
+  addCardHoverEffects('.tip-card');
 }
