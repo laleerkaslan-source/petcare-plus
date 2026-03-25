@@ -7,7 +7,8 @@ export async function initNotifications() {
 
   // Register service worker
   try {
-    const registration = await navigator.serviceWorker.register('/sw.js');
+    const base = import.meta.env.BASE_URL || '/';
+    const registration = await navigator.serviceWorker.register(`${base}sw.js`);
     console.log('SW registered:', registration.scope);
   } catch (err) {
     console.warn('SW registration failed:', err);
@@ -46,7 +47,7 @@ export function sendLocalNotification(title, body) {
   if (Notification.permission === 'granted') {
     new Notification(title, {
       body,
-      icon: '/assets/logo.svg',
+      icon: `${import.meta.env.BASE_URL || '/'}assets/logo.svg`,
     });
   }
 }

@@ -1,16 +1,11 @@
-const CACHE_NAME = 'petcare-v1';
+const CACHE_NAME = 'petcare-v2';
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/assets/logo.svg',
-  '/css/variables.css',
-  '/css/reset.css',
-  '/css/layout.css',
-  '/css/components.css',
-  '/css/pages.css',
-  '/locales/tr.json',
-  '/locales/en.json',
+  './',
+  './index.html',
+  './manifest.json',
+  './assets/logo.svg',
+  './locales/tr.json',
+  './locales/en.json',
 ];
 
 // Install - cache static assets
@@ -76,8 +71,8 @@ self.addEventListener('push', (event) => {
   const title = data.title || 'PetCare+';
   const options = {
     body: data.body || '',
-    icon: '/assets/logo.svg',
-    badge: '/assets/logo.svg',
+    icon: './assets/logo.svg',
+    badge: './assets/logo.svg',
     data: data.url || '/',
     vibrate: [200, 100, 200],
   };

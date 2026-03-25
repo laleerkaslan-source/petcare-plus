@@ -9,7 +9,8 @@ export async function initI18n() {
 
 async function loadLocale(lang) {
   try {
-    const res = await fetch(`/locales/${lang}.json`);
+    const base = import.meta.env.BASE_URL || '/';
+    const res = await fetch(`${base}locales/${lang}.json`);
     translations = await res.json();
   } catch {
     console.warn(`Failed to load locale: ${lang}`);
