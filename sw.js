@@ -3,7 +3,7 @@ const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/assets/logo.svg',
+  './assets/logo.svg',
   '/css/variables.css',
   '/css/reset.css',
   '/css/layout.css',
@@ -76,8 +76,8 @@ self.addEventListener('push', (event) => {
   const title = data.title || 'PetCare+';
   const options = {
     body: data.body || '',
-    icon: '/assets/logo.svg',
-    badge: '/assets/logo.svg',
+    icon: './assets/logo.svg',
+    badge: './assets/logo.svg',
     data: data.url || '/',
     vibrate: [200, 100, 200],
   };
